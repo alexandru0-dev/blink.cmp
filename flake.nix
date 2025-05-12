@@ -55,6 +55,7 @@
               fileset = rustFs;
             };
             cargoLock = { lockFile = ./Cargo.lock; };
+            buildInputs = with pkgs; [ rust-jemalloc-sys ];
             nativeBuildInputs = with pkgs; [ git ];
           };
 
@@ -69,6 +70,7 @@
               mkdir -p target/release
               ln -s ${self'.packages.blink-fuzzy-lib}/lib/libblink_cmp_fuzzy.* target/release/
             '';
+
           };
 
           default = self'.packages.blink-cmp;
